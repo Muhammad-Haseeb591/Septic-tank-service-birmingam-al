@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #0c1f16;
+  --color-navy-900: #123322;
+  --color-navy-800: #1a4530;
+  --color-navy-700: #22573d;
+  --color-brand-50: #f0f9f0;
+  --color-brand-100: #dcf0dc;
+  --color-brand-400: #4caf6d;
+  --color-brand-500: #2e8b57;
+  --color-brand-600: #1a7a4a;
+  --color-brand-700: #146038;
+  --color-gold-400: #e8c547;
+  --color-gold-500: #d4a017;
+  --color-gold-600: #b8860b;
+  --color-cream: #faf9f4;
+  --color-cream-dark: #f0ede1;
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-slate-800 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Outlined step numbers (process section) */
+.step-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-brand-500);
+  opacity: 0.9;
+}
+
+/* FAQ accordion: smooth height animation without JS measuring */
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+.faq-a.open {
+  grid-template-rows: 1fr;
+}
+.faq-a > div {
+  overflow: hidden;
+}
+
+/* Keep footer clear of the mobile call bar */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 76px;
+  }
+}
+
+/* Fluid type scale: shrink base size on small screens */
+@media (max-width: 480px) {
+  html {
+    font-size: 14.5px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 15.25px;
+  }
+}
